@@ -30,7 +30,7 @@ const About = () => {
   return (
     <>
       <img src={beachside} />
-      <section className="flex flex-wrap justify-center">
+      <section className="flex flex-wrap justify-center mb-40">
         {datas.map((data) => (
           <div className="w-1/4 max-md:w-full m-5">
             <h1 className="text-center font-bold">{data.title}</h1>
