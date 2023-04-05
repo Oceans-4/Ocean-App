@@ -3,13 +3,13 @@ import { useReducer } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FIRST_NAME":
   }
 };
 
 const SupportPage = () => {
   const [formState, dispatch] = useReducer(reducer, {
-    name: { value: "" },
+    firstName: { value: "" },
+    lastName: { value: "" },
     email: { value: "" },
     streetAdress: { value: "" },
     isFormValid: false,
@@ -27,19 +27,21 @@ const SupportPage = () => {
               <div className="bg-[#78d0ee] text-white font-bold p-3 text-xl mx-2">$75</div>
             </div>
           </section>
-          <div className="flex flex-wrap justify-between m-8 pt-6 max-xl:flex-col max-xl:m-8">
+          <div className="m-8 py-4">
             <label className="font-bold">First Name</label>
-            <input type="text" name="firstName" className="border-blue-500 border" />
+            <input type="text" name="firstName" className="rounded-lg py-2 w-full" />
+          </div>
+          <div className="m-8 py-4">
             <label className="font-bold">Last Name</label>
-            <input type="text" name="lastName" className="border-blue-500 border" />
+            <input type="text" name="lastName" className="rounded-lg py-2 w-full" />
           </div>
-          <div className="m-8 py-8">
+          <div className="m-8 py-4">
             <label className="font-bold">Email</label>
-            <input type="text" name="email" className="border-blue-500 border w-full" />
+            <input type="text" name="email" className="rounded-lg py-2 w-full" />
           </div>
-          <div className="m-8 py-8">
+          <div className="m-8 py-4">
             <label className="font-bold">Street Address</label>
-            <input type="text" name="streetAddress" className="border-blue-500 border w-full" />
+            <input type="text" name="streetAddress" className="rounded-lg py-2 w-full" />
           </div>
           <div className="flex justify-center pt-16 pb-8">
             <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md">Donate!</button>
