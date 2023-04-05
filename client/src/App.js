@@ -39,19 +39,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-          <HeaderTwo />
-
-          <Routes>
-            <Route path="/" element={<HomeTwo />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/support" element={<SupportPage />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/me" element={<Profile />} />
-            <Route path="/profiles/:profileId" element={<Profile />} />
-          </Routes>
-        </div>
+        <HeaderTwo />
+        <Routes>
+          <Route path="/" element={<HomeTwo />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/me" element={<Profile />} />
+          <Route path="/profiles/:profileId" element={<Profile />} />
+        </Routes>
         <Footer />
       </Router>
     </ApolloProvider>

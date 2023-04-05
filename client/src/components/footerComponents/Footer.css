@@ -45,6 +45,10 @@ footer .wave#wave4 {
   animation: animateWave_02 3s linear infinite;
 }
 
+.footer-links li:hover {
+  transform: translateY(-4px);
+}
+
 @keyframes animateWave {
   0% {
     background-position-x: 1000px;

@@ -27,7 +27,7 @@ const Footer = () => {
           </a>
         </li>
       </ul>
-      <ul className="text-white flex flex-row justify-center mt-6">
+      <ul className="text-white flex flex-row justify-center mt-6 footer-links">
         <li className="px-4">
           <Link to="/">
             <a>Home</a>
