@@ -89,7 +89,7 @@ const SupportPage = () => {
         {/* Volunteer Form */}
         <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12  mx-7 py-8 glass">
           <h1 className="text-center text-4xl font-bold text-[#0B2447]">Volunteer</h1>
-          <p className="m-10 py-8 text-center text-black font-bold text-lg">
+          <p className="m-10 py-8 text-center text-[#0B2447] font-bold text-lg">
             Volunteering for ocean preservation is an essential step towards protecting our planet's marine life and maintaining a healthy ecosystem. By dedicating our time and energy to ocean conservation efforts, we can contribute to cleaning up the ocean and preventing further pollution. Volunteering opportunities can involve participating in beach cleanups, monitoring marine wildlife, and raising awareness about the importance of ocean preservation. As a volunteer, we can learn about the
             challenges that our oceans face and actively work towards creating a more sustainable future. Every effort, no matter how small, can make a difference in protecting our oceans and the creatures that call them home.
           </p>
