@@ -58,11 +58,11 @@ const SupportPage = () => {
         <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12 mx-7 pt-8 mt-20  glass">
           <h1 className="text-center text-4xl font-bold text-[#0B2447]">Donation</h1>
           <section className="flex justify-center pt-4">
-            <div className="flex">
+            {/* <div className="flex">
               <div className="bg-[#78d0ee] text-white font-bold p-3 text-xl mx-2">$25</div>
               <div className="bg-blue-500 text-white font-bold p-3 text-xl mx-2">$50</div>
               <div className="bg-[#78d0ee] text-white font-bold p-3 text-xl mx-2">$75</div>
-            </div>
+            </div> */}
           </section>
           <div className="m-8 py-4">
             <label className="font-bold">First Name</label>
