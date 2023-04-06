@@ -29,7 +29,7 @@ const About = () => {
   ];
   return (
     <>
-      <img src={beachside} />
+      <img style={{ height: "800px", width: "100%" }} src={beachside} />
       <section className="flex flex-wrap justify-center mb-40">
         {datas.map((data) => (
           <div className="w-1/4 max-md:w-full m-5">
