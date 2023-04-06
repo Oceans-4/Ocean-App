@@ -1,19 +1,56 @@
 import "./SupportPage.css";
-import { useReducer } from "react";
+import { useState, useReducer } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "addFirstName":
+      return { ...state, firstName: action.payload };
+    case "addLastName":
+      return { ...state, lastName: action.payload };
+    case "addEmail":
+      return { ...state, email: action.payload };
+    case "addStreetAddress":
+      return { ...state, streetAdress: action.payload };
+    default:
+      return state;
   }
 };
 
 const SupportPage = () => {
+  const [firstNameStyling, setFirstNameStyling] = useState("rounded-lg py-2 w-full");
+  const [lastNameStyling, setLastNameStyling] = useState("rounded-lg py-2 w-full");
+  const [emailStyling, setEmailStyling] = useState("rounded-lg py-2 w-full");
+  const [addressStyling, setAddressStyling] = useState("rounded-lg py-2 w-full");
+
   const [formState, dispatch] = useReducer(reducer, {
-    firstName: { value: "" },
-    lastName: { value: "" },
-    email: { value: "" },
-    streetAdress: { value: "" },
-    isFormValid: false,
+    firstName: "",
+    lastName: "",
+    email: "",
+    streetAdress: "",
   });
+
+  const formHandler = () => {
+    if (formState.firstName === "") {
+      setFirstNameStyling("rounded-lg py-2 w-full border border-red-500");
+    } else {
+      setFirstNameStyling("rounded-lg py-2 w-full");
+    }
+    if (formState.lastName === "") {
+      setLastNameStyling("rounded-lg py-2 w-full border border-red-500");
+    } else {
+      setLastNameStyling("rounded-lg py-2 w-full");
+    }
+    if (formState.email === "") {
+      setEmailStyling("rounded-lg py-2 w-full border border-red-500");
+    } else {
+      setEmailStyling("rounded-lg py-2 w-full");
+    }
+    if (formState.streetAdress === "") {
+      setAddressStyling("rounded-lg py-2 w-full border border-red-500");
+    } else {
+      setAddressStyling("rounded-lg py-2 w-full");
+    }
+  };
 
   return (
     <div className="background-image mb-6">
@@ -29,22 +66,24 @@ const SupportPage = () => {
           </section>
           <div className="m-8 py-4">
             <label className="font-bold">First Name</label>
-            <input type="text" name="firstName" className="rounded-lg py-2 w-full" />
+            <input type="text" name="firstName" value={formState.firstName} onChange={(event) => dispatch({ type: "addFirstName", payload: event.target.value })} className={firstNameStyling} />
           </div>
           <div className="m-8 py-4">
             <label className="font-bold">Last Name</label>
-            <input type="text" name="lastName" className="rounded-lg py-2 w-full" />
+            <input type="text" name="lastName" value={formState.lastName} onChange={(event) => dispatch({ type: "addLastName", payload: event.target.value })} className={lastNameStyling} />
           </div>
           <div className="m-8 py-4">
             <label className="font-bold">Email</label>
-            <input type="text" name="email" className="rounded-lg py-2 w-full" />
+            <input type="text" name="email" value={formState.email} onChange={(event) => dispatch({ type: "addEmail", payload: event.target.value })} className={emailStyling} />
           </div>
           <div className="m-8 py-4">
             <label className="font-bold">Street Address</label>
-            <input type="text" name="streetAddress" className="rounded-lg py-2 w-full" />
+            <input type="text" name="streetAddress" value={formState.streetAdress} onChange={(event) => dispatch({ type: "addStreetAddress", payload: event.target.value })} className={addressStyling} />
           </div>
           <div className="flex justify-center pt-16 pb-8">
-            <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md">Donate!</button>
+            <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" onClick={formHandler}>
+              Donate!
+            </button>
           </div>
         </div>
         {/* Volunteer Form */}
