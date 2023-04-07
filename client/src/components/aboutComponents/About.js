@@ -29,7 +29,10 @@ const About = () => {
   ];
   return (
     <>
-      <img style={{ height: "800px", width: "100%" }} src={beachside} />
+      <div className="relative">
+        <img style={{ height: "800px", width: "100%" }} src={beachside} />
+        <h1 className="text-white font-bold text-6xl absolute bottom-40 left-14">Helping the ocean since 1960.</h1>
+      </div>
       <section className="flex flex-wrap justify-center mb-40">
         {datas.map((data) => (
           <div key={data.title} className="w-1/4 max-md:w-full m-5">
