@@ -20,8 +20,16 @@ const Nav = () => {
             <a>Support</a>
           </Link>
         </li>
-        <li className="px-5">Shop</li>
-        <li className={classes.glass}>Contact</li>
+
+        <li className="px-5">
+          <Link to="/shop">
+            <a>Shop</a>
+          </Link>
+        </li>
+
+        <Link to="/contact">
+          <li className={classes.glass}>Contact</li>
+        </Link>
       </ul>
     </div>
   );
