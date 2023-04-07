@@ -27,14 +27,14 @@ const DUMMY_DATA = [
     title: "Save the Ocean Watch",
     description: "A nice watch made with love.",
     imageURL: stingray,
-    price: "$25",
+    price: "$45",
   },
   {
     id: 5,
     title: "Save the Ocean Watch",
     description: "A nice watch made with love.",
     imageURL: stingray,
-    price: "$25",
+    price: "$30",
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ const Shop = () => {
             </a>
             <div class="px-5 pb-5">
               <a href="#">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-900">{item.description}</h5>
+                <h5 class="text-xl tracking-tight text-gray-900 font-light">{item.description}</h5>
               </a>
               <div class="flex items-center mt-2.5 mb-5"></div>
               <div class="flex items-center justify-between">

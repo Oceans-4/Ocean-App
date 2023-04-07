@@ -5,12 +5,6 @@ const Nav = () => {
     <div className="absolute left-full pl-96 ml-56">
       <ul className="flex flex-row px-3 text-white pt-5  text-lg font-bold items-center">
         <li className="px-5">
-          <Link to="/">
-            <a>Home</a>
-          </Link>
-        </li>
-
-        <li className="px-5">
           <Link to="/about">
             <a>About</a>
           </Link>
@@ -20,16 +14,22 @@ const Nav = () => {
             <a>Support</a>
           </Link>
         </li>
-
         <li className="px-5">
           <Link to="/shop">
             <a>Shop</a>
           </Link>
         </li>
+        <li className="px-5">
+          <Link to="/contact">
+            <a>Contact</a>
+          </Link>
+        </li>
 
-        <Link to="/contact">
-          <li className={classes.glass}>Contact</li>
-        </Link>
+        <li className={classes.glass}>
+          <Link to="/login">
+            <a>Login</a>
+          </Link>
+        </li>
       </ul>
     </div>
   );
