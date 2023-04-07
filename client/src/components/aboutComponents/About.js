@@ -32,7 +32,7 @@ const About = () => {
       <img style={{ height: "800px", width: "100%" }} src={beachside} />
       <section className="flex flex-wrap justify-center mb-40">
         {datas.map((data) => (
-          <div className="w-1/4 max-md:w-full m-5">
+          <div key={data.title} className="w-1/4 max-md:w-full m-5">
             <h1 className="text-center font-bold mb-3">{data.title}</h1>
             <p className="font-extralight">{data.text}</p>
           </div>
