@@ -25,21 +25,29 @@ const Footer = () => {
             <a>Home</a>
           </Link>
         </li>
+
         <li className="px-4">
           <Link to="/about">
             <a>About</a>
           </Link>
         </li>
+
         <li className="px-4">
           <Link to="/support">
             <a>Support</a>
           </Link>
         </li>
+
         <li className="px-4">
-          <a>Shop</a>
+          <Link to="/shop">
+            <a>Shop</a>
+          </Link>
         </li>
+
         <li className="px-4">
-          <a>Contact</a>
+          <Link to="/contact">
+            <a>Contact</a>
+          </Link>
         </li>
       </ul>
       <div className="waves">

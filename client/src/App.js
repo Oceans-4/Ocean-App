@@ -7,13 +7,13 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Header from "./components/Header";
 import Footer from "./components/footerComponents/Footer";
 import HeaderTwo from "./components/headerComponents/Header";
 import HomeTwo from "./components/homeComponents/Home";
 import About from "./components/aboutComponents/About";
 import SupportPage from "./components/supportComponent/SupportPage";
 import ContactPage from "./components/contactComponents/ContactPage";
+import Shop from "./components/shopComponents/Shop";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,6 +50,7 @@ function App() {
           <Route path="/me" element={<Profile />} />
           <Route path="/profiles/:profileId" element={<Profile />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
         <Footer />
       </Router>
