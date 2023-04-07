@@ -5,7 +5,7 @@ const DUMMY_DATA = [
     id: 1,
     title: "Save the Ocean T-Shirt",
     description: "A nice silk t-shirt made with love.",
-    imageURL: stingray,
+    imageURL: "https://picsum.photos/200/300",
     price: "$50",
   },
   {
