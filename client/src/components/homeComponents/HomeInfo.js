@@ -12,7 +12,7 @@ const HomeInfo = () => {
           <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
-          <img style={{ height: "380px", width: "400px" }} src={beach} className="max-xl:order-3 animation2" />
+          <img style={{ height: "380px", width: "400px" }} src={beach} className="max-ex:order-3 animation2" />
           <TextInfo title="Helping the Ocean is a team effort. What can you do to help?" text="You can support Ocean Buddies and our cause in numerous ways, by donating, volunteering in our effort, or just purchasing items in our shop, you are helping change the ocean and our environment." image={water} buttonText="Make a Change" link="/support" />
         </div>
       </section>

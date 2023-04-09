@@ -18,7 +18,7 @@
   display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 820px) {
   .headernav {
     display: none;
   }

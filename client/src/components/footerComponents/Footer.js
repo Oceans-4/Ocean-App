@@ -51,9 +51,9 @@ const Footer = () => {
         </li>
       </ul>
       <ul className="text-white flex flex-row justify-center text-center mt-6 max-md:flex-col">
-        <li className="px-4">123 Ocean Street, Chicago IL</li>
-        <li className="px-4">(555)-555-5555</li>
-        <li className="px-4">oceanbuddies@gmail.com</li>
+        <li className="px-4 max-md:py-1">123 Ocean Street, Chicago IL</li>
+        <li className="px-4 max-md:py-1">(555)-555-5555</li>
+        <li className="px-4 max-md:py-1">oceanbuddies@gmail.com</li>
       </ul>
       <div className="waves">
         <div className="wave" id="wave1"></div>
