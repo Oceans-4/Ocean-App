@@ -3,4 +3,9 @@
   display: flex;
   padding: 10px 0;
   z-index: 1;
+  width: 100%;
+}
+
+.title {
+  flex: 50%;
 }
