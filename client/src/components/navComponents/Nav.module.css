@@ -7,3 +7,46 @@
   border: 1px solid rgba(255, 255, 255, 0.31);
   border-radius: 15px;
 }
+
+.headernav {
+  display: flex;
+  flex: 50%;
+  justify-content: flex-end;
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .headernav {
+    display: none;
+  }
+  .mobileNav {
+    display: flex;
+    align-items: center;
+  }
+  .hamburger {
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    cursor: pointer;
+
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 120%;
+    right: 0%;
+    width: 100%;
+    background-color: rgb(59 130 246);
+    border-top: 2px solid #0b2447;
+  }
+  ul {
+    z-index: 1;
+  }
+  .contact-card {
+    padding: 0px;
+  }
+}
