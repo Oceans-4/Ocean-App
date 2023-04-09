@@ -44,25 +44,25 @@ const ContactPage = () => {
   };
 
 return (
-    <div className="contact-image mb-6">
+    <div className="contact-image mb-6  pt-5 pb-10">
     <div className="flex flex-wrap justify-center pt-10 pb-24">
-      <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12 mx-7 pt-8 mt-20  glass">
+      <div className="w-5/12 max-lg:w-9/12 max-sm:w-full mx-7 pt-8 mt-20  glass">
         <h1 className="text-center text-4xl font-bold text-[#0B2447]">Contact Us</h1>
         <section className="flex justify-center pt-4">
         </section>
-        <div className="m-8 py-4">
+        <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
           <label className="font-bold">Name</label>
           <input type="text" name="Name" value={formState.name} onChange={(event) => dispatch({ type: "addName", payload: event.target.value })} className={nameStyling} />
         </div>
-        <div className="m-8 py-4">
+        <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
           <label className="font-bold">Email</label>
           <input type="text" name="email" value={formState.email} onChange={(event) => dispatch({ type: "addEmail", payload: event.target.value })} className={emailStyling} />
         </div>
-        <div className="m-8 py-4">
+        <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
           <label className="font-bold">Message</label>
           <textarea name="message" value={formState.message} onChange={(event) => dispatch({ type: "addMessage", payload: event.target.value })} className={messageStyling} />
         </div>
-        <div className="flex justify-center pt-16 pb-8">
+        <div className="flex justify-center pt-16 pb-8 max-sm:m-3 max-sm:py-1">
           <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" onClick={formHandler}>
             Submit!
           </button>
