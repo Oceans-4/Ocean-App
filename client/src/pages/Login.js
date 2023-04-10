@@ -42,9 +42,11 @@ const Login = (props) => {
 
   return (
     <>
-      <img className="relative" style={{ height: "800px", width: "100%" }} src={dolphinsOne} />
-      <main className="fixed align-middle z-10">
-        <div className="col-12 col-lg-10">
+      {/* <img className="relative" style={{ height: "800px", width: "100%" }} src={dolphinsOne} /> */}
+      <div className="pt-32 pb-5 bg-blue-700 text-center" />
+
+      <main className="h-screen">
+        <div>
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Login</h4>
             <div className="card-body border border-solid rounded-lg p-5 glass">
