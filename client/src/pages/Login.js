@@ -47,7 +47,7 @@ const Login = (props) => {
         <div className="col-12 col-lg-10">
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Login</h4>
-            <div className="card-body">
+            <div className="card-body border border-solid rounded-lg p-5 glass">
               {data ? (
                 <p>
                   Success! You may now head <Link to="/">back to the homepage.</Link>
@@ -56,7 +56,7 @@ const Login = (props) => {
                 <form className="flex flex-column" onSubmit={handleFormSubmit}>
                   <input className="form-input border border-solid" placeholder="Your email" name="email" type="email" value={formState.email} onChange={handleChange} />
                   <input className="form-input border border-solid" placeholder="******" name="password" type="password" value={formState.password} onChange={handleChange} />
-                  <button className="btn btn-block btn-info border border-solid p-2 m-2" style={{ cursor: "pointer" }} type="submit">
+                  <button className="btn btn-block btn-info border border-solid p-2 m-2 rounded-lg" style={{ cursor: "pointer" }} type="submit">
                     Submit
                   </button>
                 </form>
