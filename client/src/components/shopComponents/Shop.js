@@ -1,61 +1,32 @@
-import stingray from "./../../images/stingray.jpg";
 import { useQuery } from "@apollo/client";
+import classes from "./Shop.module.css";
 import { QUERY_PRODUCTS } from "../../utils/queries";
-
-const DUMMY_DATA = [
-  {
-    _id: 1,
-    title: "Save the Ocean T-Shirt",
-    description: "A nice silk t-shirt made with love.",
-    imageURL: "https://picsum.photos/200/300",
-    price: "$50",
-  },
-  {
-    _id: 2,
-    title: "Save the Ocean Pants",
-    description: "A nice leather pants made with love.",
-    imageURL: stingray,
-    price: "$60",
-  },
-  {
-    _id: 3,
-    title: "Save the Ocean Watch",
-    description: "A nice watch made with love.",
-    imageURL: stingray,
-    price: "$25",
-  },
-  {
-    _id: 4,
-    title: "Save the Ocean Watch",
-    description: "A nice watch made with love.",
-    imageURL: stingray,
-    price: "$45",
-  },
-  {
-    _id: 5,
-    title: "Save the Ocean Watch",
-    description: "A nice watch made with love.",
-    imageURL: stingray,
-    price: "$30",
-  },
-  {
-    _id: 6,
-    title: "Save the Ocean Watch",
-    description: "A nice watch made with love.",
-    imageURL: stingray,
-    price: "$25",
-  },
-];
 
 const Shop = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const products = data?.products || [];
 
+  const cartProducts = [
+    { name: "shirt", amount: 2 },
+    { name: "pants", amount: 1 },
+  ];
+  console.log(products);
+
   return (
     <>
-      <div className="pt-32 pb-5 bg-blue-700 text-center">
-        <h1 className="italic text-white text-xl ">All proceeds will be donated to the supporting charities.</h1>
+      <div className="pt-32 pb-5 bg-blue-700 text-center flex justify-between">
+        <h1 className="italic text-white text-xl ml-5">All proceeds will be donated to the supporting charities.</h1>
+        <button className="flex items-center mr-5">
+          <svg style={{ width: "40px", height: "40px", color: "white" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="">
+            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+          </svg>
+          <span className={classes.badge}>
+            {cartProducts.reduce((currNumber, item) => {
+              return currNumber + item.amount;
+            }, 0)}
+          </span>
+        </button>
       </div>
 
       {loading ? (
