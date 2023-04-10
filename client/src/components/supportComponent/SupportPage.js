@@ -1,5 +1,5 @@
 import "./SupportPage.css";
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -10,75 +10,92 @@ const reducer = (state, action) => {
     case "addEmail":
       return { ...state, email: action.payload };
     case "addStreetAddress":
-      return { ...state, streetAdress: action.payload };
+      return { ...state, streetAddress: action.payload };
+    case "addFirstNameStyling":
+      return { ...state, firstNameStyling: action.payload };
+    case "addLastNameStyling":
+      return { ...state, lastNameStyling: action.payload };
+    case "addEmailStyling":
+      return { ...state, emailStyling: action.payload };
+    case "addAddressStyling":
+      return { ...state, addressStyling: action.payload };
+    case "chosenAmountStyling":
+      return { ...state, amountStyling: action.payload };
     default:
       return state;
   }
 };
 
 const SupportPage = () => {
-  const [firstNameStyling, setFirstNameStyling] = useState("rounded-lg py-2 w-full");
-  const [lastNameStyling, setLastNameStyling] = useState("rounded-lg py-2 w-full");
-  const [emailStyling, setEmailStyling] = useState("rounded-lg py-2 w-full");
-  const [addressStyling, setAddressStyling] = useState("rounded-lg py-2 w-full");
-
   const [formState, dispatch] = useReducer(reducer, {
     firstName: "",
     lastName: "",
     email: "",
-    streetAdress: "",
+    streetAddress: "",
+    firstNameStyling: "rounded-lg py-2 w-full",
+    lastNameStyling: "rounded-lg py-2 w-full",
+    emailStyling: "rounded-lg py-2 w-full",
+    addressStyling: "rounded-lg py-2 w-full",
+    amountStyling: "bg-blue-500 text-white font-bold p-3 text-xl mx-2",
   });
 
   const formHandler = () => {
-    if (formState.firstName === "") {
-      setFirstNameStyling("rounded-lg py-2 w-full border border-red-500");
+    if (formState.firstName.length === 0) {
+      dispatch({ type: "addFirstNameStyling", payload: "rounded-lg py-2 w-full border border-red-500" });
     } else {
-      setFirstNameStyling("rounded-lg py-2 w-full");
+      dispatch({ type: "addFirstNameStyling", payload: "rounded-lg py-2 w-full" });
     }
-    if (formState.lastName === "") {
-      setLastNameStyling("rounded-lg py-2 w-full border border-red-500");
+    if (formState.lastName.length === 0) {
+      dispatch({ type: "addLastNameStyling", payload: "rounded-lg py-2 w-full border border-red-500" });
     } else {
-      setLastNameStyling("rounded-lg py-2 w-full");
+      dispatch({ type: "addLastNameStyling", payload: "rounded-lg py-2 w-full" });
     }
-    if (formState.email === "") {
-      setEmailStyling("rounded-lg py-2 w-full border border-red-500");
+    if (formState.email.length === 0) {
+      dispatch({ type: "addEmailStyling", payload: "rounded-lg py-2 w-full border border-red-500" });
     } else {
-      setEmailStyling("rounded-lg py-2 w-full");
     }
-    if (formState.streetAdress === "") {
-      setAddressStyling("rounded-lg py-2 w-full border border-red-500");
+    if (formState.streetAddress.length === 0) {
+      dispatch({ type: "addAddressStyling", payload: "rounded-lg py-2 w-full border border-red-500" });
     } else {
-      setAddressStyling("rounded-lg py-2 w-full");
+      //
+      dispatch({ type: "addAddressStyling", payload: "rounded-lg py-2 w-full" });
     }
   };
+
+  const amountButtonHandler = () => {
+    dispatch({type : 'chosenAmountStyling', payload: "bg-black text-white font-bold p-3 text-xl mx-2"})
+  }
 
   return (
     <div className="background-image mb-6">
       <div className="flex flex-wrap justify-center pt-10 pb-24">
         <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12 mx-7 pt-8 mt-20  glass">
           <h1 className="text-center text-4xl font-bold text-[#0B2447]">Donation</h1>
-          <section className="flex justify-center pt-4">
-            {/* <div className="flex">
-              <div className="bg-[#78d0ee] text-white font-bold p-3 text-xl mx-2">$25</div>
-              <div className="bg-blue-500 text-white font-bold p-3 text-xl mx-2">$50</div>
-              <div className="bg-[#78d0ee] text-white font-bold p-3 text-xl mx-2">$75</div>
-            </div> */}
+          <section className="flex flex-col items-center pt-4">
+            <h2 className="font-bold text-[#0B2447] p-2">Choose an Amount!</h2>
+            <div className="flex flex-wrap justify-center">
+              <button className={formState.amountStyling}>$25</button>
+              <button className={formState.amountStyling}>$50</button>
+              <button className={formState.amountStyling}>$75</button>
+              <button className={formState.amountStyling}>$100</button>
+              <button className={formState.amountStyling}>$125</button>
+            </div>
           </section>
           <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
             <label className="font-bold">First Name</label>
-            <input type="text" name="firstName" value={formState.firstName} onChange={(event) => dispatch({ type: "addFirstName", payload: event.target.value })} className={firstNameStyling} />
+            <input type="text" name="firstName" value={formState.firstName} onChange={(event) => dispatch({ type: "addFirstName", payload: event.target.value })} className={formState.firstNameStyling} />
           </div>
           <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
             <label className="font-bold">Last Name</label>
-            <input type="text" name="lastName" value={formState.lastName} onChange={(event) => dispatch({ type: "addLastName", payload: event.target.value })} className={lastNameStyling} />
+            <input type="text" name="lastName" value={formState.lastName} onChange={(event) => dispatch({ type: "addLastName", payload: event.target.value })} className={formState.lastNameStyling} />
           </div>
           <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
             <label className="font-bold">Email</label>
-            <input type="text" name="email" value={formState.email} onChange={(event) => dispatch({ type: "addEmail", payload: event.target.value })} className={emailStyling} />
+            <input type="text" name="email" value={formState.email} onChange={(event) => dispatch({ type: "addEmail", payload: event.target.value })} className={formState.emailStyling} />
           </div>
           <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
             <label className="font-bold">Street Address</label>
-            <input type="text" name="streetAddress" value={formState.streetAdress} onChange={(event) => dispatch({ type: "addStreetAddress", payload: event.target.value })} className={addressStyling} />
+            <input type="text" name="streetAddress" value={formState.streetAddress} onChange={(event) => dispatch({ type: "addStreetAddress", payload: event.target.value })} className={formState.addressStyling} />
           </div>
           <div className="flex justify-center pt-16 pb-8 max-sm:m-3 max-sm:py-1">
             <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" onClick={formHandler}>

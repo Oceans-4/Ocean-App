@@ -28,3 +28,12 @@
     transform: translateX(0);
   }
 }
+
+@media screen and (max-width: 1050px) {
+  .animation {
+    animation: none;
+  }
+  .animation2 {
+    animation: none;
+  }
+}

@@ -1,93 +1,34 @@
-import stingray from "./../../images/stingray.jpg";
 import { useQuery } from "@apollo/client";
+import classes from "./Shop.module.css";
 import { QUERY_PRODUCTS } from "../../utils/queries";
-
-const DUMMY_DATA = [
-  {
-    _id: 1,
-    title: "Save the Ocean Otter Hoodie",
-    description: "A nice black hoodie made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014115-1ba6b5b6-cc15-49fa-b22c-20be4de92eab.png",
-    price: "$50",
-  },
-  {
-    _id: 2,
-    title: "Save the Ocean Turtle Hoodie",
-    description: "A nice black hoodie made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014116-13211f57-8219-477e-b960-b427e08270d7.png",
-    price: "$50",
-  },
-  {
-    _id: 3,
-    title: "Save the Ocean Wave Hoodie",
-    description: "A nice black hoodie made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014117-c2c92bf8-78cd-43b1-b51a-d5427fa63a5d.png",
-    price: "$50",
-  },
-  {
-    _id: 4,
-    title: "Save the Ocean Otter Sweatshirt",
-    description: "A nice cotton sweatshirt made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014121-9a03cbd7-a078-4ade-8fda-4b18ee7bc0cb.png",
-    price: "$55",
-  },
-  {
-    _id: 5,
-    title: "Save the Ocean Wave Sweatshirt",
-    description: "A nice cotton sweatshirt made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014124-1d0cd8d8-82c5-4a25-ac6b-3a3b9b693ffd.png",
-    price: "$55",
-  },
-  {
-    _id: 6,
-    title: "Save the Ocean Tutle Sweatpants",
-    description: "A nice pair of cotton sweatpants made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014125-6f6511a5-43fd-4286-96a7-b0529571a400.png",
-    price: "$35",
-  },
-  {
-    _id: 7,
-    title: "Save the Ocean Otter Sweatpants",
-    description: "A nice pair of cotton sweatpants made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014128-62e65558-9cde-4594-9860-743f444a6309.png",
-    price: "$35",
-  },
-  {
-    _id: 8,
-    title: "Save the Ocean Wave Sweatpants",
-    description: "A nice pair of cotton sweatopants made with love.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014130-f38484af-7200-4c5b-8ce7-ba0ce154d3ad.png",
-    price: "$35",
-  },
-  {
-    _id: 9,
-    title: "Save the Ocean Hats",
-    description: "Hats to scream your love for the ocean.",
-    imageURL:
-      "https://user-images.githubusercontent.com/115383177/231014132-db5f3dd1-90ec-4b24-ade5-11509bb9931b.png",
-    price: "$20",
-  },
-];
 
 const Shop = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const products = data?.products || [];
 
+  const cartProducts = [
+    { name: "shirt", amount: 2 },
+    { name: "pants", amount: 1 },
+  ];
+  console.log(products);
+
   return (
     <>
-      <div className="pt-32 pb-5 bg-blue-700 text-center">
-        <h1 className="italic text-white text-xl ">
-          All proceeds will be donated to the supporting charities.
-        </h1>
+
+      <div className="pt-32 pb-5 bg-blue-700 text-center flex justify-between">
+        <h1 className="italic text-white text-xl ml-5">All proceeds will be donated to the supporting charities.</h1>
+        <button className="flex items-center mr-5">
+          <svg style={{ width: "40px", height: "40px", color: "white" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="">
+            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+          </svg>
+          <span className={classes.badge}>
+            {cartProducts.reduce((currNumber, item) => {
+              return currNumber + item.amount;
+            }, 0)}
+          </span>
+        </button>
+
       </div>
 
       {loading ? (
