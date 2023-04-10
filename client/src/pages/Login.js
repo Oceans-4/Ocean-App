@@ -43,7 +43,7 @@ const Login = (props) => {
   return (
     <>
       <img className="relative" style={{ height: "800px", width: "100%" }} src={dolphinsOne} />
-      <main className="fixed flex flex-row align-middle z-10">
+      <main className="fixed align-middle z-10">
         <div className="col-12 col-lg-10">
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Login</h4>
