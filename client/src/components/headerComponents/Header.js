@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className={classes.header}>
-      <div className={classes.title}>
+      <div>
         <Link to="/">
-          <h1 className="text-4xl px-5 pt-7 text-white font-bold">Ocean Buddies</h1>
+          <img
+            src="https://user-images.githubusercontent.com/115383177/230939125-cfbbce77-5acf-4624-b207-ae7fd719e4c8.png"
+            alt="Ocean Buddies logo"
+            className={classes.logo}
+          />
         </Link>
       </div>
       <NavContainer />
