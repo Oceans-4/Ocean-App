@@ -19,7 +19,7 @@ const Shop = () => {
       {isModalOpen && (
         <div className={classes.backdrop}>
           <div className={classes.modal}>
-            <h1 className="text-2xl text-center text-blue-700 my-3 font-bold">Your Cart</h1>
+            <h1 className="text-3xl text-center text-blue-700 my-3 font-bold">Your Cart</h1>
             {cartProducts.map((item, index) => (
               <div className="flex flex-wrap justify-between my-3">
                 <div>

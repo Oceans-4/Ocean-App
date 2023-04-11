@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-import dolphinsOne from "../images/dolphins1.jpg";
 import Auth from "../utils/auth";
+import Signup from "./Signup";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -68,6 +68,7 @@ const Login = (props) => {
             </div>
           </div>
         </div>
+        <Signup />
       </main>
     </>
   );

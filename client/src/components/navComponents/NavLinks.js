@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useReducer } from "react";
 import { UPDATE_ACTIVE_PAGE } from "../../utils/actions";
 
@@ -48,6 +48,8 @@ export const reducer = (state, action) => {
 };
 
 const NavLinks = (props) => {
+  const location = useLocation();
+
   const [state, dispatch] = useReducer(reducer, {
     aboutStyling: "px-5 max-medium:p-3",
     supportStyling: "px-5 max-medium:p-3",
@@ -55,6 +57,10 @@ const NavLinks = (props) => {
     shopStyling: "px-5 max-medium:p-3",
     loginStyling: "px-5 bg-blue-500 p-3",
   });
+
+  // if (location.pathname === "/about") {
+  //   dispatch({ type: "CLICKED_ABOUT" });
+  // }
 
   return (
     <ul className="flex flex-row max-medium:flex-col px-3 text-white pt-5  text-lg font-bold items-center">
@@ -72,7 +78,7 @@ const NavLinks = (props) => {
         <li
           className={state.supportStyling}
           onClick={() => {
-            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_SUPPORT" });
+            props.isMobile && props.closeMobileMenu();
           }}
         >
           <a>Support</a>
