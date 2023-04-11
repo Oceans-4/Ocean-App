@@ -1,5 +1,5 @@
 import "./SupportPage.css";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -19,8 +19,6 @@ const reducer = (state, action) => {
       return { ...state, emailStyling: action.payload };
     case "addAddressStyling":
       return { ...state, addressStyling: action.payload };
-    case "chosenAmountStyling":
-      return { ...state, amountStyling: action.payload };
     default:
       return state;
   }
@@ -36,7 +34,10 @@ const SupportPage = () => {
     lastNameStyling: "rounded-lg py-2 w-full",
     emailStyling: "rounded-lg py-2 w-full",
     addressStyling: "rounded-lg py-2 w-full",
-    amountStyling: "bg-blue-500 text-white font-bold p-3 text-xl mx-2",
+    $25Styling: "bg-blue-400 text-white font-bold p-3 text-xl mx-2 my-1",
+    $50Styling: "bg-blue-400 text-white font-bold p-3 text-xl mx-2 my-1",
+    $75Styling: "bg-blue-400 text-white font-bold p-3 text-xl mx-2 my-1",
+    inputStyling: "bg-blue-400 text-white font-bold p-3 text-xl mx-2 my-1",
   });
 
   const formHandler = () => {
@@ -62,25 +63,20 @@ const SupportPage = () => {
     }
   };
 
-  const amountButtonHandler = () => {
-    dispatch({type : 'chosenAmountStyling', payload: "bg-black text-white font-bold p-3 text-xl mx-2"})
-  }
-
   return (
     <div className="background-image mb-6">
       <div className="flex flex-wrap justify-center pt-10 pb-24">
         <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12 mx-7 pt-8 mt-20  glass">
           <h1 className="text-center text-4xl font-bold text-[#0B2447]">Donation</h1>
-          <section className="flex flex-col items-center pt-4">
+          {/* <section className="flex flex-col items-center pt-4">
             <h2 className="font-bold text-[#0B2447] p-2">Choose an Amount!</h2>
             <div className="flex flex-wrap justify-center">
-              <button className={formState.amountStyling}>$25</button>
-              <button className={formState.amountStyling}>$50</button>
-              <button className={formState.amountStyling}>$75</button>
-              <button className={formState.amountStyling}>$100</button>
-              <button className={formState.amountStyling}>$125</button>
+              <button className={formState.$25Styling}>$25</button>
+              <button className={formState.$50Styling}>$50</button>
+              <button className={formState.$75Styling}>$75</button>
+              <button className={formState.inputStyling}>$125</button>
             </div>
-          </section>
+          </section> */}
           <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
             <label className="font-bold">First Name</label>
             <input type="text" name="firstName" value={formState.firstName} onChange={(event) => dispatch({ type: "addFirstName", payload: event.target.value })} className={formState.firstNameStyling} />
