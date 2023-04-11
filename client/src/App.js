@@ -13,6 +13,7 @@ import About from "./components/aboutComponents/About";
 import SupportPage from "./components/supportComponent/SupportPage";
 import ContactPage from "./components/contactComponents/ContactPage";
 import Shop from "./components/shopComponents/Shop";
+import { StoreProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,19 +40,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <HeaderTwo />
-        <Routes>
-          <Route path="/" element={<HomeTwo />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/me" element={<Profile />} />
-          <Route path="/profiles/:profileId" element={<Profile />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/shop" element={<Shop />} />
-        </Routes>
-        <Footer />
+        <StoreProvider>
+          <HeaderTwo />
+          <Routes>
+            <Route path="/" element={<HomeTwo />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/me" element={<Profile />} />
+            <Route path="/profiles/:profileId" element={<Profile />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/shop" element={<Shop />} />
+          </Routes>
+          <Footer />
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );

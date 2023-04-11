@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useReducer } from "react";
+import { UPDATE_ACTIVE_PAGE } from "../../utils/actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -46,7 +47,7 @@ export const reducer = (state, action) => {
   }
 };
 
-const NavLinks = () => {
+const NavLinks = (props) => {
   const [state, dispatch] = useReducer(reducer, {
     aboutStyling: "px-5 max-medium:p-3",
     supportStyling: "px-5 max-medium:p-3",
@@ -61,7 +62,7 @@ const NavLinks = () => {
         <li
           className={state.aboutStyling}
           onClick={() => {
-            dispatch({ type: "CLICKED_ABOUT" });
+            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_ABOUT" });
           }}
         >
           <a>About</a>
@@ -71,7 +72,7 @@ const NavLinks = () => {
         <li
           className={state.supportStyling}
           onClick={() => {
-            dispatch({ type: "CLICKED_SUPPORT" });
+            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_SUPPORT" });
           }}
         >
           <a>Support</a>
@@ -81,7 +82,7 @@ const NavLinks = () => {
         <li
           className={state.shopStyling}
           onClick={() => {
-            dispatch({ type: "CLICKED_SHOP" });
+            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_SHOP" });
           }}
         >
           <a>Shop</a>
@@ -91,7 +92,7 @@ const NavLinks = () => {
         <li
           className={state.contactStyling}
           onClick={() => {
-            dispatch({ type: "CLICKED_CONTACT" });
+            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_CONTACT" });
           }}
         >
           <a>Contact</a>
@@ -101,7 +102,7 @@ const NavLinks = () => {
         <li
           className={state.loginStyling}
           onClick={() => {
-            dispatch({ type: "CLICKED_LOGIN" });
+            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_LOGIN" });
           }}
         >
           <a>Login</a>
