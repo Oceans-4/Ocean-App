@@ -2,7 +2,10 @@ import { useQuery } from "@apollo/client";
 import classes from "./Shop.module.css";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 const Shop = () => {
+  const uuid = uuidv4();
+
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const products = data?.products || [];
@@ -17,23 +20,44 @@ const Shop = () => {
         <div className={classes.backdrop}>
           <div className={classes.modal}>
             <h1 className="text-2xl text-center text-blue-700 my-3 font-bold">Your Cart</h1>
-            {cartProducts.map((item) => (
-              <div className="flex flex-wrap justify-between my-2">
+            {cartProducts.map((item, index) => (
+              <div className="flex flex-wrap justify-between my-3">
                 <div>
-                  <h1>{item.title}</h1>
-                  <div>{item.price}</div>
+                  <h1 className="font-bold text-lg">{item.title}</h1>
+                  <div>${item.price}</div>
+                  <button
+                    className="text-white bg-red-400 hover:bg-red-500 font-light rounded-lg text-sm px-2 py-1.5 text-center mt-1"
+                    onClick={() => {
+                      setCartProducts(cartProducts.filter((item) => item.id !== cartProducts[index].id));
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
                 <img style={{ height: "200px", width: "200px" }} src={item.image} alt="product image" />
               </div>
             ))}
-            <div className="flex justify-end mt-3">
-              <button className="text-white bg-gray-400 hover:bg-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mx-2">Go Back</button>
-              <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Checkout</button>
+            <div className="flex justify-between mt-3 items-center">
+              <div>
+                <h2 className="font-bold text-lg">Total</h2>
+                <h1>
+                  $
+                  {cartProducts.reduce((currNumber, item) => {
+                    return currNumber + item.price;
+                  }, 0)}
+                </h1>
+              </div>
+              <div>
+                <button className="text-white bg-gray-400 hover:bg-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mx-2" onClick={() => setIsModalOpen(false)}>
+                  Go Back
+                </button>
+                <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Checkout</button>
+              </div>
             </div>
           </div>
         </div>
       )}
-      <div className="pt-32 pb-5 bg-blue-700 text-center flex justify-between">
+      <div className="pt-40 pb-5 bg-blue-700 text-center flex justify-between">
         <h1 className="italic text-white text-xl ml-5">All proceeds will be donated to the supporting charities.</h1>
         <button className="flex items-center mr-5" onClick={() => setIsModalOpen(true)}>
           <svg style={{ width: "40px", height: "40px", color: "white" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="">
@@ -53,20 +77,16 @@ const Shop = () => {
         <section className="mb-40 flex flex-wrap justify-around mx-10 m-5">
           {products.map((item) => (
             <div key={item._id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow mb-5">
-              <a href="#">
-                <img className="p-8 rounded-t-lg" src={item.imageURL} alt="product image" />
-              </a>
+              <img className="p-8 rounded-t-lg" src={item.imageURL} alt="product image" />
               <div className="px-5 pb-5">
-                <a href="#">
-                  <h5 className="text-xl tracking-tight text-gray-900 font-light">{item.description}</h5>
-                </a>
+                <h5 className="text-xl tracking-tight text-gray-900 font-light">{item.description}</h5>
                 <div className="flex items-center mt-2.5 mb-5"></div>
                 <div className="flex items-center justify-between">
                   <span className="text-3xl font-bold text-gray-900">${item.price}</span>
                   <button
                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                     onClick={() => {
-                      setCartProducts([...cartProducts, { title: item.title, image: item.imageURL, price: item.price, amount: 1 }]);
+                      setCartProducts([...cartProducts, { id: uuid, title: item.title, image: item.imageURL, price: item.price, amount: 1 }]);
                     }}
                   >
                     Add to cart
