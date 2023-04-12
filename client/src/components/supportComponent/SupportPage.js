@@ -107,7 +107,9 @@ const SupportPage = () => {
             challenges that our oceans face and actively work towards creating a more sustainable future. Every effort, no matter how small, can make a difference in protecting our oceans and the creatures that call them home.
           </p>
           <div className="flex justify-center pt-8">
-            <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md">Volunteer!</button>
+            <a href="https://www.goeco.org/tags/volunteer-for-marine-conservation/" target="_blank">
+              <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md">Volunteer!</button>
+            </a>
           </div>
         </div>
       </div>

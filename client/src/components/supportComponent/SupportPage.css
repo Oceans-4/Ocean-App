@@ -17,3 +17,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.background-image-two {
+  background-image: url("./../../images/edited.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

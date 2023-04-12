@@ -1,74 +1,27 @@
 import { useLocation, Link } from "react-router-dom";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { UPDATE_ACTIVE_PAGE } from "../../utils/actions";
-
-export const reducer = (state, action) => {
-  switch (action.type) {
-    case "CLICKED_ABOUT":
-      return {
-        aboutStyling: "px-5 text-yellow-400 max-medium:p-3",
-        supportStyling: "px-5 max-medium:p-3",
-        contactStyling: "px-5 max-medium:p-3",
-        shopStyling: "px-5 max-medium:p-3",
-        loginStyling: "px-5 bg-blue-500 p-3",
-      };
-    case "CLICKED_SUPPORT":
-      return {
-        supportStyling: "px-5 text-yellow-400 max-medium:p-3",
-        aboutStyling: "px-5 max-medium:p-3",
-        contactStyling: "px-5 max-medium:p-3",
-        shopStyling: "px-5 max-medium:p-3",
-        loginStyling: "px-5 bg-blue-500 p-3",
-      };
-    case "CLICKED_CONTACT":
-      return {
-        contactStyling: "px-5 text-yellow-400 max-medium:p-3",
-        supportStyling: "px-5 max-medium:p-3",
-        aboutStyling: "px-5 max-medium:p-3",
-        shopStyling: "px-5 max-medium:p-3",
-        loginStyling: "px-5 bg-blue-500 p-3",
-      };
-    case "CLICKED_SHOP":
-      return {
-        shopStyling: "px-5 text-yellow-400 max-medium:p-3",
-        supportStyling: "px-5 max-medium:p-3",
-        contactStyling: "px-5 max-medium:p-3",
-        aboutStyling: "px-5 max-medium:p-3",
-        loginStyling: "px-5 bg-blue-500 p-3",
-      };
-    case "CLICKED_LOGIN":
-      return {
-        loginStyling: "px-5 text-yellow-400 bg-blue-500 p-3",
-        supportStyling: "px-5 max-medium:p-3",
-        contactStyling: "px-5 max-medium:p-3",
-        shopStyling: "px-5 max-medium:p-3",
-        aboutStyling: "px-5 max-medium:p-3",
-      };
-  }
-};
+// px-5 text-yellow-400 max-medium:p-3
+// px-5 max-medium:p-3
+import Auth from "../../utils/auth";
 
 const NavLinks = (props) => {
   const location = useLocation();
 
-  const [state, dispatch] = useReducer(reducer, {
-    aboutStyling: "px-5 max-medium:p-3",
-    supportStyling: "px-5 max-medium:p-3",
-    contactStyling: "px-5 max-medium:p-3",
-    shopStyling: "px-5 max-medium:p-3",
-    loginStyling: "px-5 bg-blue-500 p-3",
-  });
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
-  // if (location.pathname === "/about") {
-  //   dispatch({ type: "CLICKED_ABOUT" });
-  // }
+  // console.log(location.pathname === "/about");
 
   return (
     <ul className="flex flex-row max-medium:flex-col px-3 text-white pt-5  text-lg font-bold items-center">
       <Link to="/about">
         <li
-          className={state.aboutStyling}
+          className={"px-5 max-medium:p-3" + (location.pathname === "/about" ? " text-yellow-400" : "")}
           onClick={() => {
-            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_ABOUT" });
+            props.isMobile && props.closeMobileMenu();
           }}
         >
           <a>About</a>
@@ -76,7 +29,7 @@ const NavLinks = (props) => {
       </Link>
       <Link to="/support">
         <li
-          className={state.supportStyling}
+          className={"px-5 max-medium:p-3" + (location.pathname === "/support" ? " text-yellow-400" : "")}
           onClick={() => {
             props.isMobile && props.closeMobileMenu();
           }}
@@ -86,9 +39,9 @@ const NavLinks = (props) => {
       </Link>
       <Link to="/shop">
         <li
-          className={state.shopStyling}
+          className={"px-5 max-medium:p-3" + (location.pathname === "/shop" ? " text-yellow-400" : "")}
           onClick={() => {
-            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_SHOP" });
+            props.isMobile && props.closeMobileMenu();
           }}
         >
           <a>Shop</a>
@@ -96,24 +49,50 @@ const NavLinks = (props) => {
       </Link>
       <Link to="/contact">
         <li
-          className={state.contactStyling}
+          className={"px-5 max-medium:p-3" + (location.pathname === "/contact" ? " text-yellow-400" : "")}
           onClick={() => {
-            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_CONTACT" });
+            props.isMobile && props.closeMobileMenu();
           }}
         >
           <a>Contact</a>
         </li>
       </Link>
-      <Link to="/login">
+      {/* <Link to="/login">
         <li
-          className={state.loginStyling}
-          onClick={() => {
-            props.isMobile && props.closeMobileMenu() && dispatch({ type: "CLICKED_LOGIN" });
-          }}
+          className={"px-5 max-medium:p-3" + (location.pathname === "/login" ? " text-yellow-400" : "")}
+          
         >
           <a>Login</a>
         </li>
-      </Link>
+      </Link> */}
+      {Auth.loggedIn() ? (
+        <>
+          <Link
+            className={"px-5 max-medium:p-3" + (location.pathname === "/news" ? " text-yellow-400" : "")}
+            to="/news"
+            onClick={() => {
+              props.isMobile && props.closeMobileMenu();
+            }}
+          >
+            News
+          </Link>
+          <button className="btn btn-lg btn-light m-2" onClick={logout}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <Link
+            className={"px-5 max-medium:p-3 bg-blue-500 p-3" + (location.pathname === "/login" ? " text-yellow-400" : "")}
+            to="/login"
+            onClick={() => {
+              props.isMobile && props.closeMobileMenu();
+            }}
+          >
+            Login
+          </Link>
+        </>
+      )}
     </ul>
   );
 };
