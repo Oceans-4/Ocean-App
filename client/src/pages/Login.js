@@ -41,36 +41,41 @@ const Login = (props) => {
   };
 
   return (
-    <>
+    <div className="background-image-two mb-6">
       {/* <img className="relative" style={{ height: "800px", width: "100%" }} src={dolphinsOne} /> */}
-      <div className="pt-32 pb-5 bg-blue-700 text-center" />
+      {/* <div className="pt-32 pb-5 bg-blue-700 text-center" /> */}
 
-      <main className="h-screen">
-        <div>
-          <div className="card">
-            <h4 className="card-header bg-dark text-light p-2">Login</h4>
-            <div className="card-body border border-solid rounded-lg p-5 glass">
-              {data ? (
-                <p>
-                  Success! You may now head <Link to="/">back to the homepage.</Link>
-                </p>
-              ) : (
-                <form className="flex flex-column" onSubmit={handleFormSubmit}>
-                  <input className="form-input border border-solid" placeholder="Your email" name="email" type="email" value={formState.email} onChange={handleChange} />
-                  <input className="form-input border border-solid" placeholder="******" name="password" type="password" value={formState.password} onChange={handleChange} />
-                  <button className="btn btn-block btn-info border border-solid p-2 m-2 rounded-lg" style={{ cursor: "pointer" }} type="submit">
-                    Submit
-                  </button>
-                </form>
-              )}
+      <main className="flex flex-wrap justify-center pt-10 pb-24 h-screen">
+        <div className=" w-5/12 max-lg:w-9/12 max-sm:w-full mx-7 pt-8 mt-20  glass">
+          <h4 className="text-center text-4xl font-bold text-[#0B2447]">Login</h4>
+          <div>
+            {data ? (
+              <p>
+                Success! You may now head <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form className="flex flex-col" onSubmit={handleFormSubmit}>
+                <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
+                  <label className="font-bold text-white">Email</label>
+                  <input className="rounded-lg py-2 w-full" placeholder=" Your email" name="email" type="email" value={formState.email} onChange={handleChange} />
+                </div>
+                <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
+                  <label className="font-bold text-white">Password</label>
+                  <input className="rounded-lg py-2 w-full" placeholder=" ******" name="password" type="password" value={formState.password} onChange={handleChange} />
+                </div>
 
-              {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
-            </div>
+                <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" style={{ cursor: "pointer" }} type="submit">
+                  Submit
+                </button>
+              </form>
+            )}
+
+            {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
           </div>
         </div>
         <Signup />
       </main>
-    </>
+    </div>
   );
 };
 

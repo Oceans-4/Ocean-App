@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
+import { useMutation } from "@apollo/client";
+import { ADD_PROFILE } from "../utils/mutations";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -41,61 +41,38 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="name"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+    // <main className="flex flex-wrap justify-center pb-24">
+      <div className=" w-5/12 max-lg:w-9/12 max-sm:w-full mx-7 pt-8 mt-20  glass">
+        <h4 className="text-center text-4xl font-bold text-[#0B2447]">Sign Up</h4>
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
-        </div>
+        {data ? (
+          <p>
+            Success! You may now head <Link to="/">back to the homepage.</Link>
+          </p>
+        ) : (
+          <form className="flex flex-col" onSubmit={handleFormSubmit}>
+            <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
+              <label className="font-bold text-white">Username</label>
+              <input className="rounded-lg py-2 w-full" placeholder=" Your username" name="name" type="text" value={formState.name} onChange={handleChange} />
+            </div>
+            <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
+              <label className="font-bold text-white">Email</label>
+              <input className="rounded-lg py-2 w-full" placeholder=" Your email" name="email" type="email" value={formState.email} onChange={handleChange} />
+            </div>
+            <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
+              <label className="font-bold text-white">Password</label>
+              <input className="rounded-lg py-2 w-full" placeholder=" ******" name="password" type="password" value={formState.password} onChange={handleChange} />
+            </div>
+
+            <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" style={{ cursor: "pointer" }} type="submit">
+              Submit
+            </button>
+          </form>
+        )}
+
+        {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
       </div>
-    </main>
+    // </main>
   );
 };
 
