@@ -1,19 +1,20 @@
 import TextInfo from "../homeComponents/TextInfo";
 import water from "./../../images/deep-blue.jpg";
+import turtle from "./../../images/sleepy-turtle.jpg";
 
 const News = () => {
   return (
     <>
-      <div className="pt-40 pb-5 bg-blue-700 text-center flex justify-between" />
+      <div className="pt-32 pb-5 bg-blue-700 text-center flex justify-between" />
       <section>
         <div className="flex flex-wrap py-8 justify-center">
           <TextInfo
             title="Ocean Buddies and Rescuing Sea Turtles"
             text="Rescuing sea turtles is an important and ongoing effort to protect these vulnerable creatures from harm. Sea turtles face numerous threats, including entanglement in fishing gear, ingestion of plastics, poaching, and habitat destruction. When sea turtles are injured, sick, or otherwise in need of assistance, specialized organizations and trained professionals are often called upon to provide rescue and rehabilitation services."
-            image={water}
+            image={turtle}
             buttonText="Read More"
           />
-          <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />
+          <img style={{ height: "380px", width: "400px" }} className="animation" src={turtle} />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
           <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />

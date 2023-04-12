@@ -76,7 +76,7 @@ const NavLinks = (props) => {
           >
             News
           </Link>
-          <button className="btn btn-lg btn-light m-2" onClick={logout}>
+          <button className={"px-5 max-medium:p-3 bg-blue-500 p-3" + (location.pathname === "/logout" ? " text-yellow-400" : "")} onClick={logout}>
             Logout
           </button>
         </>
