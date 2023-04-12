@@ -45,8 +45,8 @@ const Login = (props) => {
       {/* <img className="relative" style={{ height: "800px", width: "100%" }} src={dolphinsOne} /> */}
       {/* <div className="pt-32 pb-5 bg-blue-700 text-center" /> */}
 
-      <main className="flex flex-wrap justify-center pt-10 pb-24 h-screen">
-        <div className=" w-5/12 max-lg:w-9/12 max-sm:w-full mx-7 pt-8 mt-20  glass">
+      <main className="flex flex-wrap justify-center pt-10 pb-24">
+        <div className=" w-5/12 max-lg:w-9/12 max-sm:w-full mx-7 pt-8 mt-20 glass">
           <h4 className="text-center text-4xl font-bold text-[#0B2447]">Login</h4>
           <div>
             {data ? (
@@ -55,22 +55,23 @@ const Login = (props) => {
               </p>
             ) : (
               <form className="flex flex-col" onSubmit={handleFormSubmit}>
-                <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
-                  <label className="font-bold text-white">Email</label>
+                <div className="m-8 py-4">
+                  <label className="font-bold ">Email</label>
                   <input className="rounded-lg py-2 w-full" placeholder=" Your email" name="email" type="email" value={formState.email} onChange={handleChange} />
                 </div>
-                <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
-                  <label className="font-bold text-white">Password</label>
+                <div className="m-8 py-4">
+                  <label className="font-bold ">Password</label>
                   <input className="rounded-lg py-2 w-full" placeholder=" ******" name="password" type="password" value={formState.password} onChange={handleChange} />
                 </div>
-
-                <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" style={{ cursor: "pointer" }} type="submit">
-                  Submit
-                </button>
+                <div className="flex justify-center pt-16 pb-8">
+                  <button className="bg-blue-500 text-white text-3xl p-3 m-4 font-bold rounded-md" style={{ cursor: "pointer" }} type="submit">
+                    Submit
+                  </button>
+                </div>
               </form>
             )}
 
-            {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
+            {error && <div className="p-3 text-white text-center font-bold text-lg">{error.message}</div>}
           </div>
         </div>
         <Signup />

@@ -8,7 +8,7 @@ const HomeInfo = () => {
     <div className="mb-48">
       <section className="m-6">
         <div className="flex flex-wrap py-8 justify-center">
-          <TextInfo title="We can make a difference, this won't be our first time." text="Our leadership team bring years of experience to bear on the greatest challenge of our time. We’re results driven, with a proven record of previous successes." image={water} buttonText="Learn More" link="/about" />
+          <TextInfo title="We can make a change, this won't be our first time." text="Our leadership team bring years of experience to bear on the greatest challenge of our time. We’re results driven, with a proven record of previous successes." image={water} buttonText="Learn More" link="/about" />
           <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
