@@ -17,7 +17,7 @@ const News = () => {
           <img style={{ height: "380px", width: "400px" }} className="animation" src={turtle} />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
-          <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />
+          <img style={{ height: "380px", width: "400px" }} className="max-ex:order-3 animation2" src={water} />
           <TextInfo title="Ocean Buddies Coral Reef Conservation Efforts" text="Coral reefs are among the most biodiverse and productive ecosystems on Earth, supporting countless species of marine life and providing important ecological, economic, and cultural benefits to communities around the world. Unfortunately, coral reefs are under threat from a range of human activities, including overfishing, pollution, and climate change." image={water} buttonText="Read More" />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
@@ -25,7 +25,7 @@ const News = () => {
           <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />
         </div>
         <div className="flex flex-wrap py-8 mb-32 justify-center">
-          <img style={{ height: "380px", width: "400px" }} className="animation" src={water} />
+          <img style={{ height: "380px", width: "400px" }} className="max-ex:order-3 animation2" src={water} />
           <TextInfo title="Plastic Waste and Our Removal of It" text="Plastic waste is one of the biggest environmental challenges facing our oceans, and many ocean charities are working tirelessly to tackle this issue. The negative impacts of plastic pollution on marine ecosystems are well-documented, including entanglement, ingestion, and the release of toxic chemicals." image={water} buttonText="Read More" />
         </div>
       </section>
