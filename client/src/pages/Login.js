@@ -50,7 +50,7 @@ const Login = (props) => {
           <h4 className="text-center text-4xl font-bold text-[#0B2447]">Login</h4>
           <div>
             {data ? (
-              <p>
+              <p className="text-center text-white font-bold py-2">
                 Success! You may now head <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
