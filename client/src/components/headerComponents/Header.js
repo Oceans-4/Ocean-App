@@ -8,7 +8,7 @@ const Header = () => {
     <div className={classes.header}>
       <div>
         <Link to="/">
-          <img src="https://user-images.githubusercontent.com/115383177/230939125-cfbbce77-5acf-4624-b207-ae7fd719e4c8.png" alt="Ocean Buddies logo" className="flex flex-wrap w-1/2 ml-4" />
+          <img style={{ height: "200px", width: "400px" }} src="https://user-images.githubusercontent.com/115383177/230939125-cfbbce77-5acf-4624-b207-ae7fd719e4c8.png" alt="Ocean Buddies logo" className="flex flex-wrap w-1/2 ml-4" />
         </Link>
       </div>
       <NavContainer />
