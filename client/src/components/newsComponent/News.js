@@ -96,18 +96,18 @@ const News = () => {
             buttonText="Read More"
             action={revealModal1}
           />
-          <img style={{ height: "380px", width: "400px" }} className="animation" src={turtle} />
+          <img className="animation h-96 w-96 max-sm:w-80" src={turtle} />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
-          <img style={{ height: "380px", width: "400px" }} className="max-ex:order-3 animation2" src={reef} />
+          <img className="max-ex:order-3 animation2 h-96 w-96 max-sm:w-80" src={reef} />
           <TextInfo title="Ocean Buddies Coral Reef Conservation Efforts" text="Coral reefs are among the most biodiverse and productive ecosystems on Earth, supporting countless species of marine life and providing important ecological, economic, and cultural benefits to communities around the world. Unfortunately, coral reefs are under threat from a range of human activities, including overfishing, pollution, and climate change." buttonText="Read More" action={revealModal2} />
         </div>
         <div className="flex flex-wrap py-8 justify-center">
           <TextInfo title="How We Helped with Ocean Acidification!" text="Ocean acidification is a growing threat to the health of our oceans, and many ocean charities are working to address this issue. Ocean acidification occurs when carbon dioxide from the atmosphere dissolves in seawater, causing the water to become more acidic. " buttonText="Read More" action={revealModal3} />
-          <img style={{ height: "380px", width: "400px" }} className="animation" src={acidification} />
+          <img className="animation h-96 w-96 max-sm:w-80" src={acidification} />
         </div>
         <div className="flex flex-wrap py-8 mb-32 justify-center">
-          <img style={{ height: "380px", width: "400px" }} className="max-ex:order-3 animation2" src={plastic} />
+          <img className="max-ex:order-3 animation2 h-96 w-96 max-sm:w-80" src={plastic} />
           <TextInfo title="Plastic Waste and Our Removal of It" text="Plastic waste is one of the biggest environmental challenges facing our oceans, and many ocean charities are working tirelessly to tackle this issue. The negative impacts of plastic pollution on marine ecosystems are well-documented, including entanglement, ingestion, and the release of toxic chemicals." buttonText="Read More" action={revealModal4} />
         </div>
       </section>

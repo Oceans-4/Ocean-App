@@ -65,7 +65,7 @@ const SupportPage = () => {
 
   return (
     <div className="background-image mb-6">
-      <div className="flex flex-wrap justify-center pt-10 pb-24">
+      <div className="flex flex-wrap justify-center pt-16 pb-24">
         <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12 mx-7 pt-8 mt-20  glass">
           <h1 className="text-center text-4xl font-bold text-[#0B2447]">Donation</h1>
           {/* <section className="flex flex-col items-center pt-4">

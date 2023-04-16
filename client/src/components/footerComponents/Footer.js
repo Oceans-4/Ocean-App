@@ -20,31 +20,31 @@ const Footer = () => {
         </li>
       </ul>
       <ul className="text-white flex flex-row justify-center mt-6 footer-links">
-        <li className="px-4">
+        <li className="pr-4 max-sm:px-2">
           <Link to="/">
             <a>Home</a>
           </Link>
         </li>
 
-        <li className="px-4">
+        <li className="px-4 max-sm:px-2">
           <Link to="/about">
             <a>About</a>
           </Link>
         </li>
 
-        <li className="px-4">
+        <li className="px-4 max-sm:px-2">
           <Link to="/support">
             <a>Support</a>
           </Link>
         </li>
 
-        <li className="px-4">
+        <li className="px-4 max-sm:px-2">
           <Link to="/shop">
             <a>Shop</a>
           </Link>
         </li>
 
-        <li className="px-4">
+        <li className="pl-4 max-sm:px-2">
           <Link to="/contact">
             <a>Contact</a>
           </Link>
