@@ -68,15 +68,6 @@ const SupportPage = () => {
       <div className="flex flex-wrap justify-center pt-16 pb-24">
         <div className="w-5/12 max-lg:w-9/12 max-sm:w-11/12 mx-7 pt-8 mt-20  glass">
           <h1 className="text-center text-4xl font-bold text-[#0B2447]">Donation</h1>
-          {/* <section className="flex flex-col items-center pt-4">
-            <h2 className="font-bold text-[#0B2447] p-2">Choose an Amount!</h2>
-            <div className="flex flex-wrap justify-center">
-              <button className={formState.$25Styling}>$25</button>
-              <button className={formState.$50Styling}>$50</button>
-              <button className={formState.$75Styling}>$75</button>
-              <button className={formState.inputStyling}>$125</button>
-            </div>
-          </section> */}
           <div className="m-8 py-4 max-sm:m-3 max-sm:py-1">
             <label className="font-bold">First Name</label>
             <input type="text" name="firstName" value={formState.firstName} onChange={(event) => dispatch({ type: "addFirstName", payload: event.target.value })} className={formState.firstNameStyling} />

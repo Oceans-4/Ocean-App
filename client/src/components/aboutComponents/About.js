@@ -30,7 +30,7 @@ const About = () => {
   return (
     <>
       <div className="relative">
-        <img style={{ height: "800px", width: "100%" }} src={beachside} />
+        <img style={{ height: "800px", width: "100%" }} className="object-cover" src={beachside} />
         <h1 className="text-white font-bold text-6xl absolute bottom-40 left-14">Helping the ocean since 1960.</h1>
       </div>
       <section className="flex flex-wrap justify-center mb-40">
